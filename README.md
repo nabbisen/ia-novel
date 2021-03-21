@@ -38,6 +38,8 @@ customize
 - play music
 - play sound at events
 - show screen effect at events
+    - shake
+- transition effect
 - show figures (people shadows) in backgrounds
 - change text speed
     - specific paragraph automatically
