@@ -34,6 +34,7 @@ customize
     - take over choosed option
     - timer effect
         - lack of on-animationend event
+- user choice events without timer
 - play music
 - play sound at events
 - show screen effect at events
