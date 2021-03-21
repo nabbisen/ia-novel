@@ -13,7 +13,7 @@ var is_page_typed_done = false;
 var page_idx = 0;
 
 function write_page(page_idx) {
-    page_json_data = scenario_json_data[page_idx];
+    let page_json_data = scenario_json_data[page_idx];
 
     var reader_view = document.querySelector('#app .reader .view');
     if (reader_view.innerText !== '') {
