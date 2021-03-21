@@ -46,6 +46,8 @@ customize
     - as user option
 - enable to change text style
     - specific text automatically
+- more key hooks
+    - enter key shows whole text on page in process
 - guidance for beginners
 - multilingual
 - improve style
