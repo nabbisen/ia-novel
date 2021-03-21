@@ -1,14 +1,14 @@
 
 # ia-novel
 
-"i"nter"a"ctive visual novel maker.
-a visual novel development stack with universal and easy-to-use web technologies.
+- "i"nter"a"ctive visual novel maker
+- a visual novel development stack with universal and easy-to-use web technologies
 
 ## features
 
-pure html / css / javascript
-mobile-friendly (responsive) out of the box
-history view is available
+- pure html / css / javascript
+- mobile-friendly (responsive) out of the box
+- history view is available
 
 ### installation
 
