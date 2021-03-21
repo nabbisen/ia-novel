@@ -1,0 +1,234 @@
+
+:root {
+    font-size: 10px;
+}
+html body {
+    margin: 0;
+    font-size: 1.0rem;
+    font-family: 'sans-serif';
+}
+#app {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    max-width: 102.4rem;
+    height: 100vh;
+    padding: 0;
+    margin: auto;
+    font-size: 1.8rem;
+    line-height: 1.75em;
+}
+#app .background,
+#app .background .overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+}
+#app .background {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#app .background .overlay {
+    background: #fff;
+    opacity: 0.86;
+}
+#app .figures,
+#app .reader {
+    position: absolute;
+}
+#app .figures {
+    left: 10%;
+    top: 5%;
+    width: 80%;
+    height: 90%;
+}
+#app .reader {
+    left: 1.4em;
+    top: 0.8em;
+    width: calc(100% - 2.8em);
+    height: calc(100% - 1.6em);
+}
+#app .reader .history {
+    width: calc(100% - 2.5rem);
+    height: 0;
+    padding: 0.4rem 0.8rem;
+    margin: 0.3em 0 0.9em;
+    opacity: 0.0;
+    overflow-y: hidden;
+    color: #242424;
+    font-size: 92%;
+    border-left: #939393 0.5rem solid;
+    transition: all 1.2s ease;
+}
+#app .reader #show-history:checked ~ .history {
+    height: auto;
+    opacity: 1.0;
+    overflow-y: auto;
+}
+#app .reader .view {
+    width: 100%;
+}
+#app .reader .view ~ .go-to-next {
+    width: 0;
+    line-height: 3.2rem;
+    float: right;
+    color: #393939;
+    opacity: 0.0;
+    pointer-events: none;
+    background: #75a300;
+    color: #dfdfdf;
+    font-weight: bold;
+    border: 0.04rem #ffdcbc solid;
+    border-radius: 1.7rem;
+    outline: none;
+}
+#app .reader .view.finished ~ .go-to-next {
+    width: 5em;
+    opacity: 1.0;
+    pointer-events: auto;
+    transition: opacity 0.6s ease;
+}
+#app .reader .view.finished ~ .go-to-next::after {
+    content: '>>';
+}
+#app .reader .view.finished ~ .go-to-next:hover,
+#app .reader .view.finished ~ .go-to-next:hover,
+#app .reader .view.finished ~ .go-to-next:active {
+    opacity: 0.9;
+}
+#app .reader .view.finished ~ .go-to-next:hover::after,
+#app .reader .view.finished ~ .go-to-next:hover::after,
+#app .reader .view.finished ~ .go-to-next:active::after {
+    content: 'Next';
+}
+#show-history,
+#show-dialog {
+    display: none;
+}
+.toggle {
+    position: fixed;
+    right: 0.9em;
+    top: 0.3em;
+    padding: 0.5em;
+    z-index: 10002;
+}
+.toggle.show-history {
+    right: 2.4em;
+}
+.show-history {
+    transform: rotate(0deg);
+}
+#show-history:checked ~ .show-history {
+    transform: rotate(30deg);
+}
+.show-history::before {
+    content: '#';
+    color: #121212;
+}
+#show-history:checked ~ .show-history::before {
+    color: #727272;
+}
+.show-dialog::before {
+    content: '+';
+}
+#show-dialog:checked ~ .show-dialog::before {
+    content: '-';
+}
+#dialog {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 0;
+    margin: 0;
+    background: linear-gradient(180deg, lightgrey, silver, grey);
+    opacity: 0.0;
+    pointer-events: none;
+    border-bottom-left-radius: 24%;
+    border-bottom-right-radius: 24%;
+    z-index: 10001;
+    transition: opacity 1.2s ease,
+                height 999.9s ease,
+                border-radius 999.9s ease;
+}
+#app .reader #show-history:checked ~ .history,
+#show-dialog:checked ~ #dialog {
+    height: auto;
+    opacity: 0.96;
+    pointer-events: auto;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: all 0.8s ease;
+}
+#show-dialog:checked ~ #dialog {
+    height: 100vh;
+}
+#dialog .options_title {
+    width: 100%;
+    text-align: center;
+}
+#dialog .options,
+#dialog .timer-container {
+    position: absolute;
+    left: 1.0em;
+    top: 0.6em;
+    width: calc(100% - 2.0em);
+    height: calc(100% - 1.2em);
+    line-height: 2.4em;
+}
+#dialog .options {
+    left: 15vw;
+    max-width: 70vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#dialog .options .option {
+    width: auto;
+    padding: 0.3em 0.7em;
+    margin: 0.5em;
+    border-radius: 0.3rem;
+    line-height: 2.0em; 
+}
+#dialog .timer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#dialog .timer-container .timer {
+    display: block;
+    width: 70vmin;
+    height: 70vmin;
+    margin: auto;
+    transform: rotate(-90deg);
+}
+#dialog .timer-container .timer circle {
+    stroke-width: 1.0em;
+    fill: transparent;
+    stroke-dasharray: 1;
+}
+#dialog .timer-container .timer.show circle {
+    animation: timer-fill 10s linear forwards;
+    /* animation-duration: 10s; */
+}
+@keyframes timer-fill {
+    0% {
+        stroke-dashoffset: 1;
+        stroke: #139728a1;
+    }
+    50% {
+        stroke: #75a300a1;
+    }
+    75% {
+        stroke: #ffdcbca1;
+    }
+    100% {
+        stroke-dasharray: 1;
+        stroke: #ff6961a1;
+        stroke-dashoffset: 0;
+    }
+}
