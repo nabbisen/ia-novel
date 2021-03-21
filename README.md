@@ -14,7 +14,7 @@
 
 just download package
 
-#### view
+#### play
 
 open index.html via modern web browsers such as google chrome, safari, firefox
 
